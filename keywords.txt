@@ -1,0 +1,44 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+WeatherData	KEYWORD1
+WeatherOrNot KEYWORD1
+DecodeOOK KEYWORD1
+DewpointCalculator KEYWORD1
+EMxDecoder KEYWORD1
+FSxDecoder KEYWORD1
+HezDecoder KEYWORD1
+KakuDecoder KEYWORD1
+KSxDecoder KEYWORD1
+OregonDecoderV2 KEYWORD1
+OregonDecoderV3 KEYWORD1
+OSV2AnemometerSensor KEYWORD1
+OSV2IndoorTempHygroSensor KEYWORD1
+OSV2IndoorTempSensor KEYWORD1
+OSV2OutdoorTempHygroBaroSensor KEYWORD1
+OSV2OutdoorTempHygroSensor KEYWORD1
+OSV2RainSensor KEYWORD1
+Sensor KEYWORD1
+VisionicDecoder KEYWORD1
+WeatherData KEYWORD1
+WeatherOrNot KEYWORD1
+XrfDecoder KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+calculateDewpoint KEYWORD2
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
