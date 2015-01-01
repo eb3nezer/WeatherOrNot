@@ -29,7 +29,9 @@ class WeatherData {
         	BAROMETRIC_PRESSURE,
         	COMFORT,
         	FORECAST,
-        	DEW_POINT};
+        	DEW_POINT,
+        	INDOOR_TEMP,
+        	INDOOR_HUMIDITY};
         WeatherData();
         int getDataAsInt(int field);
         float getDataAsFloat(int field);
