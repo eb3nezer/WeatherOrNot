@@ -11,7 +11,7 @@ Let's cut straight to the code. Suppose you have an Oregon Scientific system (v2
 
 Let's declare the classes we will need.
 
-```
+```cpp
 #include <WeatherData.h>
 #include <WeatherOrNot.h>
 #include <OSV2IndoorTempHygroSensor.h>
@@ -30,7 +30,7 @@ OSV2IndoorTempHygroSensor indoorTempHygro;
 
 Next we do some setup.
 
-```
+```cpp
 void setup () {
     // Add the Oregon v2 indoor temp/hygro sensor to the Oregon v2 decoder
     oregonv2.addSensor((Sensor *)&indoorTempHygro);
@@ -49,7 +49,7 @@ WeatherData, and returns void.
 Maybe you want your callback to do something with the data, but here I will make
 it set a flag that the main loop will see.
 
-```
+```cpp
 int dataReceived = 0;
 WeatherData currentWeather;
 
@@ -65,7 +65,7 @@ on interrupts. Once interrupts are turned on, it will call me if any of my
 sensors receive data. I also give WeatherOrNot a pointer to the weather data
 object I would like it to populate.
 
-```
+```cpp
     // Tell it to call our newWeather() function
     weatherReceiver.setCallback(newWeather, &currentWeather);
     
@@ -82,7 +82,7 @@ object I would like it to populate.
 
 Now in my main loop I need to check the dataReceived flag.
 
-```
+```cpp
 void loop () {
     if (dataReceived) {
       // Turn off interrupts so we can process the data
