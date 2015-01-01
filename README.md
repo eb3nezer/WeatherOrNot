@@ -88,9 +88,9 @@ void loop () {
       // Turn off interrupts so we can process the data
       weatherReceiver.setInterrupt(false);
       // Do someting with the data
-      // displayWeather();
+      // displayWeather(&currentWeather);
       // clear out the data that was just sent from the weatherData object
-      weatherData.clearDataFields();
+      currentWeather.clearDataFields();
       // Turn interrupts back on again
       dataReceived = 0;
       weatherReceiver.setInterrupt(true);
