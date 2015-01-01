@@ -1,3 +1,4 @@
+#include <SPI.h>
 #include <WeatherData.h>
 #include <WeatherOrNot.h>
 #include <OSV2IndoorTempHygroSensor.h>
@@ -58,9 +59,9 @@ void displayWeather()
     float faren;
     float celcius;
     
-    if (weatherData.isSet(WeatherData::OUTDOOR_TEMP)) {
-      celcius = weatherData.getDataAsFloat(WeatherData::OUTDOOR_TEMP); 
-      faren = (weatherData.getDataAsFloat(WeatherData::OUTDOOR_TEMP) * 1.8f) + 32.0f;
+    if (currentWeather.isSet(WeatherData::OUTDOOR_TEMP)) {
+      celcius = currentWeather.getDataAsFloat(WeatherData::OUTDOOR_TEMP); 
+      faren = (currentWeather.getDataAsFloat(WeatherData::OUTDOOR_TEMP) * 1.8f) + 32.0f;
       Serial.print("Temperature: ");
       Serial.print(celcius);
       Serial.print("C");
@@ -68,9 +69,9 @@ void displayWeather()
       Serial.print(faren);
       Serial.println("F");
     }
-    if (weatherData.isSet(WeatherData::DEW_POINT)) {
-      celcius = weatherData.getDataAsFloat(WeatherData::DEW_POINT); 
-      faren = (weatherData.getDataAsFloat(WeatherData::DEW_POINT) * 1.8f) + 32.0f;
+    if (currentWeather.isSet(WeatherData::DEW_POINT)) {
+      celcius = currentWeather.getDataAsFloat(WeatherData::DEW_POINT); 
+      faren = (currentWeather.getDataAsFloat(WeatherData::DEW_POINT) * 1.8f) + 32.0f;
       Serial.print("Dew Point: ");
       Serial.print(celcius);
       Serial.print("C");
@@ -78,10 +79,10 @@ void displayWeather()
       Serial.print(faren);
       Serial.println("F");
     }
-    if (weatherData.isSet(WeatherData::OUTDOOR_HUMIDITY)) {
+    if (currentWeather.isSet(WeatherData::OUTDOOR_HUMIDITY)) {
       Serial.print("Humidity: ");
-      Serial.print(weatherData.getDataAsInt(WeatherData::OUTDOOR_HUMIDITY));
-      Serial.println("%");
+      Serial.print(currentWeather.getDataAsInt(WeatherData::OUTDOOR_HUMIDITY));
+      Serial.println("\\%");
     }
 
 }
@@ -91,7 +92,7 @@ void loop () {
       // Turn off interrupts so we can process the data
       weatherReceiver.setInterrupt(false);
       displayWeather();
-      weatherData.clearDataFields();
+      currentWeather.clearDataFields();
       // Turn interrupts back on again
       dataReceived = 0;
       weatherReceiver.setInterrupt(true);
